@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>Welcome to the Homepage</h1>
+    <h2>Welcome, <%= userName %>!</h2> <!-- Display the user's name -->
+
+    <% if (habits.length > 0) { %>
+        <h3>Submitted Habit Forms:</h3>
+        <ul>
+            <% habits.forEach(habit => { %>
+                <li>Title: <%= habit.title %>, Description: <%= habit.description %>
+                    <form method="POST" action="/delete-habit/<%= habit._id %>?_method=DELETE">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No habits submitted (yet!)</p>
+    <% } %>
+
+    <!-- Button to add a new habit -->
+    <a href="/new_habit"><button>Add Habit</button></a>
+
+    <!-- Logout form -->
+    <form method="POST" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>
