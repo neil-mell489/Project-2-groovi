@@ -1,0 +1,30 @@
+<!-- edit_habit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Habit</title>
+</head>
+<body>
+    <h1>Edit Habit</h1>
+    <form action="/update-habit/<%= habit._id %>" method="POST">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="<%= habit.title %>"><br>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="<%= habit.description %>"><br>
+
+        <label for="days">Days:</label>
+        <input type="text" id="days" name="days" value="<%= habit.days.join(', ') %>"><br>
+
+        <label for="times">Times:</label>
+        <input type="text" id="times" name="times" value="<%= habit.times.join(', ') %>"><br>
+
+        <!-- You can add more form fields for other properties if needed -->
+
+        <button type="submit">Update Habit</button>
+    </form>
+</body>
+</html>

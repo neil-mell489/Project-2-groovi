@@ -1,14 +1,18 @@
+// server.js
+
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
-const HabitForm = require('./models/habit_form');
-const User = require('./models/user');
 const methodOverride = require('method-override');
 const flash = require('express-flash');
+const User = require('./models/user');
+const HabitForm = require('./models/habit_form');
 require('dotenv').config();  // Moved to the top
 require('./config/database'); // Moved to the top
+const habitController = require('./controllers/habitController');
+const userController = require('./controllers/userController');
 
 const app = express();
 
@@ -25,10 +29,10 @@ app.set('view engine', 'ejs');
 
 // Configure express-session middleware
 app.use(session({
-  secret: process.env.secret,
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 30 * 60 * 1000 } // Session expires after 30 minutes
+    secret: process.env.secret,
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 30 * 60 * 1000 } // Session expires after 30 minutes
 }));
 
 // Initialize Passport.js middleware
@@ -41,110 +45,26 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Routes
-
-// Homepage route
-app.get('/', isAuthenticated, async (req, res) => {
-  try {
-    const habits = await HabitForm.find({ user: req.user._id });
-    const userName = req.user.username;
-    res.render('homepage', { userName, habits });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error rendering homepage');
-  }
-});
-
-// New habit form route
-app.get('/new_habit', isAuthenticated, (req, res) => {
-  try {
-    res.render('new_habit');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error rendering new_habit page');
-  }
-});
-
-// Submit habit form route
-app.post('/submit-habit', isAuthenticated, async (req, res) => {
-  const { title, description, days, times } = req.body;
-  const newHabitForm = new HabitForm({
-    title,
-    description,
-    days: Array.isArray(days) ? days : [days],
-    times: Array.isArray(times) ? times : [times],
-    user: req.user._id
-  });
-  try {
-    await newHabitForm.save();
-    res.redirect('/');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error saving habit form');
-  }
-});
-
-// Delete habit route
-app.delete('/delete-habit/:id', isAuthenticated, async (req, res) => {
-  const habitId = req.params.id;
-  try {
-    const habitToDelete = await HabitForm.findByIdAndDelete(habitId);
-    if (!habitToDelete) {
-      return res.status(404).send('Habit not found or you are not authorized to delete it.');
-    }
-    res.redirect('/');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error deleting habit form');
-  }
-});
-
-
-// Register route
-app.post('/register', async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    const user = new User({ username });
-    await User.register(user, password);
-    res.redirect('/login');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error registering user');
-  }
-});
-
-// Login route
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: true
-}));
-
-// Render login page
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-// Logout route
-app.post('/logout', (req, res) => {
-  req.logout(function(err) {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error logging out');
-    } else {
-      res.redirect('/login');
-    }
-  });
-});
+app.get('/', isAuthenticated, habitController.getHomepage);
+app.get('/new_habit', isAuthenticated, habitController.getNewHabitForm);
+app.post('/submit-habit', isAuthenticated, habitController.submitHabitForm);
+app.delete('/delete-habit/:id', isAuthenticated, habitController.deleteHabit);
+app.get('/edit-habit/:id', isAuthenticated, habitController.getEditHabitForm); // Corrected route
+app.put('/update-habit/:id', isAuthenticated, habitController.updateHabit); // Route to handle updating habit
+app.post('/register', userController.registerUser);
+app.post('/login', userController.loginUser);
+app.get('/login', userController.renderLoginPage);
+app.post('/logout', userController.logoutUser);
 
 // Middleware to check if user is authenticated
 function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login');
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
 }
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
