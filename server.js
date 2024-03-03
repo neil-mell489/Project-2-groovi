@@ -7,6 +7,7 @@ const HabitForm = require('./models/habit_form');
 const User = require('./models/user');
 const methodOverride = require('method-override');
 const flash = require('express-flash');
+const database = require('./config/database');
 require('dotenv').config();
 require('./config/database');
 
