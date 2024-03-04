@@ -17,25 +17,32 @@
         <label for="description">Description:</label>
         <input type="text" id="description" name="description" required><br>
 
-        <label for="days">Days:</label>
-        <input type="text" id="days" name="days" required><br>
+        <label for="days">Days:</label><br>
+        <input type="checkbox" id="dayMon" name="days" value="Monday">
+        <label for="dayMon">Monday</label><br>
+        <input type="checkbox" id="dayTue" name="days" value="Tuesday">
+        <label for="dayTue">Tuesday</label><br>
+        <input type="checkbox" id="dayWed" name="days" value="Wednesday">
+        <label for="dayWed">Wednesday</label><br>
+        <input type="checkbox" id="dayThu" name="days" value="Thursday">
+        <label for="dayThu">Thursday</label><br>
+        <input type="checkbox" id="dayFri" name="days" value="Friday">
+        <label for="dayFri">Friday</label><br>
+        <input type="checkbox" id="daySat" name="days" value="Saturday">
+        <label for="daySat">Saturday</label><br>
+        <input type="checkbox" id="daySun" name="days" value="Sunday">
+        <label for="daySun">Sunday</label><br>
 
-        <label for="times">Times:</label>
-        <input type="text" id="times" name="times" required><br>
+        <label for="times">Time:</label>
+        <select id="times" name="times">
+            <option value="01:00 AM">01:00 AM</option>
+            <option value="02:00 AM">02:00 AM</option>
+            <option value="03:00 AM">03:00 AM</option>
+            <!-- Add more options for all hours of the day -->
+            <option value="11:59 PM">11:59 PM</option>
+        </select><br>
 
         <button type="submit">Submit</button>
     </form>
-
-    <!-- Iterate over habits and display them -->
-    <% habits.forEach(habit => { %>
-        <div>
-            <h3><%= habit.title %></h3>
-            <p><%= habit.description %></p>
-            <p>Days: <%= habit.days.join(', ') %></p>
-            <p>Times: <%= habit.times.join(', ') %></p>
-            <!-- Add an edit button for each habit -->
-            <a href="/edit-habit/<%= habit._id %>">Edit</a>
-        </div>
-    <% }) %>
 </body>
 </html>

@@ -13,7 +13,13 @@
         <h3>Submitted Habit Forms:</h3>
         <ul>
             <% habits.forEach(habit => { %>
-                <li>Title: <%= habit.title %>, Description: <%= habit.description %>
+                <li>
+                    <h3>Title: <%= habit.title %></h3>
+                    <p>Description: <%= habit.description %></p>
+                    <p>Days: <%= habit.days.join(', ') %></p>
+                    <p>Times: <%= habit.times.join(', ') %></p>
+                    <!-- Add an edit button with a link to the edit page -->
+                    <a href="/edit-habit/<%= habit._id %>">Edit</a>
                     <form method="POST" action="/delete-habit/<%= habit._id %>?_method=DELETE">
                         <button type="submit">Delete</button>
                     </form>
