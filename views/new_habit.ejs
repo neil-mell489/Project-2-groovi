@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Habit</title>
-    <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/new_habit.css">
 </head>
 <body>
@@ -22,48 +21,52 @@
 
             <!-- Container for days and time inputs -->
             <div class="day-time-container">
-                <!-- Container for days column -->
-                <div class="days-container">
-                    <!-- Checkboxes for days -->
-                    <input type="checkbox" id="daySun" name="days" value="Sunday">
-                    <label for="daySun">Sunday</label><br>
-
-                    <input type="checkbox" id="dayMon" name="days" value="Monday">
-                    <label for="dayMon">Monday</label><br>
-
-                    <input type="checkbox" id="dayTue" name="days" value="Tuesday">
-                    <label for="dayTue">Tuesday</label><br>
-
-                    <input type="checkbox" id="dayWed" name="days" value="Wednesday">
-                    <label for="dayWed">Wednesday</label><br>
-
-                    <input type="checkbox" id="dayThu" name="days" value="Thursday">
-                    <label for="dayThu">Thursday</label><br>
-
-                    <input type="checkbox" id="dayFri" name="days" value="Friday">
-                    <label for="dayFri">Friday</label><br>
-
-                    <input type="checkbox" id="daySat" name="days" value="Saturday">
-                    <label for="daySat">Saturday</label><br>
-                </div>
-
-                <!-- Container for time inputs -->
-                <div class="time-container">
+                <!-- Group for each day -->
+                <div class="day-group">
+                    <!-- Checkbox for Sunday -->
+                    <input type="checkbox" id="checkSun" name="checkSun">
+                    <!-- Assigning a class to the label for Sunday -->
+                    <label for="checkSun" class="day-text">Sunday</label>
                     <!-- Time input for Sunday -->
-                    <input type="time" id="timeSun" name="times"><br>
-                    <!-- Time input for Monday -->
-                    <input type="time" id="timeMon" name="times"><br>
-                    <!-- Time input for Tuesday -->
-                    <input type="time" id="timeTue" name="times"><br>
-                    <!-- Time input for Wednesday -->
-                    <input type="time" id="timeWed" name="times"><br>
-                    <!-- Time input for Thursday -->
-                    <input type="time" id="timeThu" name="times"><br>
-                    <!-- Time input for Friday -->
-                    <input type="time" id="timeFri" name="times"><br>
-                    <!-- Time input for Saturday -->
-                    <input type="time" id="timeSat" name="times"><br>
+                    <input type="time" id="timeSun" name="timeSun">
                 </div>
+
+                <div class="day-group">
+                    <input type="checkbox" id="checkMon" name="checkMon">
+                    <label for="checkMon" class="day-text">Monday</label>
+                    <input type="time" id="timeMon" name="timeMon">
+                </div>
+
+                <div class="day-group">
+                    <input type="checkbox" id="checkTue" name="checkTue">
+                    <label for="checkTue" class="day-text">Tuesday</label>
+                    <input type="time" id="timeTue" name="timeTue">
+                </div>
+                
+                <div class="day-group">
+                    <input type="checkbox" id="checkWed" name="checkWed">
+                    <label for="checkWed" class="day-text">Wednesday</label>
+                    <input type="time" id="timeWed" name="timeWed">
+                </div>
+                
+                <div class="day-group">
+                    <input type="checkbox" id="checkThu" name="checkThu">
+                    <label for="checkThu" class="day-text">Thursday</label>
+                    <input type="time" id="timeThu" name="timeThu">
+                </div>
+                
+                <div class="day-group">
+                    <input type="checkbox" id="checkFri" name="checkFri">
+                    <label for="checkFri" class="day-text">Friday</label>
+                    <input type="time" id="timeFri" name="timeFri">
+                </div>
+                
+                <div class="day-group">
+                    <input type="checkbox" id="checkSat" name="checkSat">
+                    <label for="checkSat" class="day-text">Saturday</label>
+                    <input type="time" id="timeSat" name="timeSat">
+                </div>
+
             </div>
 
             <!-- Submit button -->
