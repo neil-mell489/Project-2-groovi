@@ -13,8 +13,7 @@ exports.getHomepage = async (req, res) => {
       console.error(error);
       res.status(500).send('Error fetching habits');
     }
-  };
-  
+};
 
 // Render the form for creating a new habit
 exports.getNewHabitForm = (req, res) => {
@@ -25,12 +24,15 @@ exports.getNewHabitForm = (req, res) => {
 exports.submitHabitForm = async (req, res) => {
   const { title, description, days, times } = req.body;
   try {
-    await HabitForm.create({
+    // Associate the habit with the logged-in user
+    const habit = new HabitForm({
       title,
       description,
       days: Array.isArray(days) ? days : [days],
       times: Array.isArray(times) ? times : [times],
+      user: req.user._id  // Associate with the logged-in user
     });
+    await habit.save();  // Save the habit to the database
     res.redirect('/');
   } catch (error) {
     console.error(error);

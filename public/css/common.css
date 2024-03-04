@@ -1,0 +1,48 @@
+/* Set the font family to Montserrat */
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Set the background to black and font color to white */
+body {
+    background-color: black;
+    color: white;
+}
+
+/* Apply specific styles for headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    /* Add additional styling for headings if needed */
+}
+
+/* Center everything within its own section */
+section {
+    text-align: center;
+}
+
+/* Justify items within the section */
+section ul {
+    text-align: justify;
+}
+
+/* Ensure each list item in the section maintains alignment */
+section ul li {
+    display: inline-block;
+}
+
+button {
+    background-color: #000000; /* Very dark gray/near black background */
+    color: #fff; /* White text */
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px; /* More rounded corners */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+    font-size: 16px;
+    margin: 10px;
+}
+
+/* Change button styles on hover */
+button:hover {
+    background-color: #444; /* Darker background color on hover */
+}

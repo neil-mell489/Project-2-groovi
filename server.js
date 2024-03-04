@@ -51,6 +51,7 @@ app.post('/submit-habit', isAuthenticated, habitController.submitHabitForm);
 app.delete('/delete-habit/:id', isAuthenticated, habitController.deleteHabit);
 app.get('/edit-habit/:id', isAuthenticated, habitController.getEditHabitForm); // Corrected route
 app.put('/update-habit/:id', isAuthenticated, habitController.updateHabit); // Route to handle updating habit
+app.post('/update-habit/:id', isAuthenticated, habitController.updateHabit);
 app.post('/register', userController.registerUser);
 app.post('/login', userController.loginUser);
 app.get('/login', userController.renderLoginPage);

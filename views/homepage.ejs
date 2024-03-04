@@ -4,38 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/homepage.css">
 </head>
 <body>
-    <h1>Welcome to the Homepage</h1>
+    <h1>home.</h1>
     <h2>Welcome, <%= userName %>!</h2> <!-- Display the user's name -->
 
     <% if (habits.length > 0) { %>
-        <h3>Submitted Habit Forms:</h3>
-        <ul>
+        <h3>Your Habits:</h3>
+        <ul class="habit-list">
             <% habits.forEach(habit => { %>
-                <li>
-                    <h3>Title: <%= habit.title %></h3>
-                    <p>Description: <%= habit.description %></p>
-                    <p>Days: <%= habit.days.join(', ') %></p>
-                    <p>Times: <%= habit.times.join(', ') %></p>
-                    <!-- Add an edit button with a link to the edit page -->
-                    <a href="/edit-habit/<%= habit._id %>">Edit</a>
-                    <form method="POST" action="/delete-habit/<%= habit._id %>?_method=DELETE">
-                        <button type="submit">Delete</button>
-                    </form>
+                <li class="habit-item">
+                    <div class="habit-box">
+                        <h3 class="habit-title"><%= habit.title %></h3>
+                        <p class="habit-description"><%= habit.description %></p>
+                        <ul class="habit-details">
+                            <% habit.days.forEach((day, index) => { %>
+                                <li><strong><%= day %>:</strong> <%= habit.times[index] ? habit.times[index] : 'No specified time' %></li>
+                            <% }); %>
+                        </ul>
+                        <!-- Add an edit button with a link to the edit page -->
+                        <form method="GET" action="/edit-habit/<%= habit._id %>" class="habit-button">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form method="POST" action="/delete-habit/<%= habit._id %>?_method=DELETE" class="habit-button">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
                 </li>
             <% }); %>
         </ul>
-    <% } else { %>
-        <p>No habits submitted (yet!)</p>
-    <% } %>
+        <% } else { %>
+            <p class="no-habits-message">No habits submitted (yet!)</p>
+        <% } %>
+        
 
     <!-- Button to add a new habit -->
-    <a href="/new_habit"><button>Add Habit</button></a>
+    <a href="/new_habit" class="add-button"><button>Add Habit</button></a>
 
     <!-- Logout form -->
-    <form method="POST" action="/logout">
+    <form method="POST" action="/logout" class="logout-form">
         <button type="submit">Logout</button>
     </form>
+
+    <script>
+        /* Add your JavaScript code here if needed */
+    </script>
 </body>
 </html>

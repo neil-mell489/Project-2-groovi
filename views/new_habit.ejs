@@ -1,48 +1,74 @@
-<!-- new_habit.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Habit</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/new_habit.css">
 </head>
 <body>
-    <h1>New Habit</h1>
+    <h1>new.</h1>
     <!-- Display form to create a new habit -->
-    <form action="/submit-habit" method="POST">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required><br>
+    <div class="form-container">
+        <form action="/submit-habit" method="POST">
+            <!-- Title input -->
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
 
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" required><br>
+            <!-- Description input -->
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required><br>
 
-        <label for="days">Days:</label><br>
-        <input type="checkbox" id="dayMon" name="days" value="Monday">
-        <label for="dayMon">Monday</label><br>
-        <input type="checkbox" id="dayTue" name="days" value="Tuesday">
-        <label for="dayTue">Tuesday</label><br>
-        <input type="checkbox" id="dayWed" name="days" value="Wednesday">
-        <label for="dayWed">Wednesday</label><br>
-        <input type="checkbox" id="dayThu" name="days" value="Thursday">
-        <label for="dayThu">Thursday</label><br>
-        <input type="checkbox" id="dayFri" name="days" value="Friday">
-        <label for="dayFri">Friday</label><br>
-        <input type="checkbox" id="daySat" name="days" value="Saturday">
-        <label for="daySat">Saturday</label><br>
-        <input type="checkbox" id="daySun" name="days" value="Sunday">
-        <label for="daySun">Sunday</label><br>
+            <!-- Container for days and time inputs -->
+            <div class="day-time-container">
+                <!-- Container for days column -->
+                <div class="days-container">
+                    <!-- Checkboxes for days -->
+                    <input type="checkbox" id="daySun" name="days" value="Sunday">
+                    <label for="daySun">Sunday</label><br>
 
-        <label for="times">Time:</label>
-        <select id="times" name="times">
-            <option value="01:00 AM">01:00 AM</option>
-            <option value="02:00 AM">02:00 AM</option>
-            <option value="03:00 AM">03:00 AM</option>
-            <!-- Add more options for all hours of the day -->
-            <option value="11:59 PM">11:59 PM</option>
-        </select><br>
+                    <input type="checkbox" id="dayMon" name="days" value="Monday">
+                    <label for="dayMon">Monday</label><br>
 
-        <button type="submit">Submit</button>
-    </form>
+                    <input type="checkbox" id="dayTue" name="days" value="Tuesday">
+                    <label for="dayTue">Tuesday</label><br>
+
+                    <input type="checkbox" id="dayWed" name="days" value="Wednesday">
+                    <label for="dayWed">Wednesday</label><br>
+
+                    <input type="checkbox" id="dayThu" name="days" value="Thursday">
+                    <label for="dayThu">Thursday</label><br>
+
+                    <input type="checkbox" id="dayFri" name="days" value="Friday">
+                    <label for="dayFri">Friday</label><br>
+
+                    <input type="checkbox" id="daySat" name="days" value="Saturday">
+                    <label for="daySat">Saturday</label><br>
+                </div>
+
+                <!-- Container for time inputs -->
+                <div class="time-container">
+                    <!-- Time input for Sunday -->
+                    <input type="time" id="timeSun" name="times"><br>
+                    <!-- Time input for Monday -->
+                    <input type="time" id="timeMon" name="times"><br>
+                    <!-- Time input for Tuesday -->
+                    <input type="time" id="timeTue" name="times"><br>
+                    <!-- Time input for Wednesday -->
+                    <input type="time" id="timeWed" name="times"><br>
+                    <!-- Time input for Thursday -->
+                    <input type="time" id="timeThu" name="times"><br>
+                    <!-- Time input for Friday -->
+                    <input type="time" id="timeFri" name="times"><br>
+                    <!-- Time input for Saturday -->
+                    <input type="time" id="timeSat" name="times"><br>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
