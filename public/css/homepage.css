@@ -4,6 +4,7 @@
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    margin-top: 80px;
 }
 
 /* Welcome message */
@@ -18,20 +19,34 @@ ul {
     padding: 0;
 }
 
-/* Style for each habit */
+.habit-list-container {
+    max-height: calc(90% - 200px); /* Set a maximum height for the habit list container */
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+    border: 2px solid white; /* Add a white border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: black; /* Set the background color to black */
+}
+
+
+
 .habit-container {
     background-color: black; /* Changed background color to black */
-    margin-bottom: 30px;
-    border-radius: 10px;
-    border: 2px solid white; /* Add white border */
-    padding: 20px; /* Moved padding here */
+    padding: 10px; /* Adjusted padding */
+    width: 90%; /* Adjusted width */
+    max-width: 500px; /* Added max-width */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.habit-item {
+    padding: 20px;
+    margin-bottom: 10px;
 }
 
 /* Title of each habit */
 h3 {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 0;
     text-align: left; /* Align title to the left */
 }
@@ -39,27 +54,44 @@ h3 {
 /* Description of each habit */
 p {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-top: 0;
     text-align: left; /* Align description to the left */
 }
 
 /* Days and times list */
 ul ul {
-    margin-top: 10px;
+    margin-top: 5px;
     padding-left: 0;
 }
 
 /* Day and time item */
 ul ul li {
     font-size: 0.9rem;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     list-style-type: none;
 }
 
-/* Edit and delete buttons */
+/* Adjust button styles for homepage */
 form {
-    display: inline-block;
+    display: inline-block; /* Display the form inline */
+    margin-left: 10px; /* Add space between buttons */
+}
+
+button {
+    background-color: black; /* Changed background color */
+    color: white; /* Changed text color */
+    border: 1px solid white; /* Added border */
+    border-radius: 5px;
+    padding: 8px 16px; /* Adjusted padding */
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+    font-size: 16px;
+}
+
+/* Change button styles on hover */
+button:hover {
+    background-color: #333; /* Darker background color on hover */
 }
 
 /* Centering and responsiveness */
@@ -91,8 +123,6 @@ body {
     margin-bottom: 80px;
 }
 
-
-
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     h1 {
@@ -104,9 +134,11 @@ body {
     }
 
     button {
-        padding: 8px 16px;
+        padding: 8px 12px; /* Adjusted padding */
     }
 }
 
-
-
+.add-button {
+    margin-top: 30px;
+    margin-bottom: -30px;
+}

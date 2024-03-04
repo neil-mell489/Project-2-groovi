@@ -9,43 +9,44 @@
 </head>
 <body>
     <h1>home.</h1>
-    <h2>Welcome, <%= userName %>!</h2> <!-- Display the user's name -->
 
     <% if (habits.length > 0) { %>
-        <h3>Your Habits:</h3>
-        <ul class="habit-list">
-            <% habits.forEach(habit => { %>
-                <li class="habit-item">
-                    <div class="habit-box">
-                        <h3 class="habit-title"><%= habit.title %></h3>
-                        <p class="habit-description"><%= habit.description %></p>
-                        <ul class="habit-details">
-                            <% habit.days.forEach((day, index) => { %>
-                                <li><strong><%= day %>:</strong> <%= habit.times[index] ? habit.times[index] : 'No specified time' %></li>
-                            <% }); %>
-                        </ul>
-                        <!-- Add an edit button with a link to the edit page -->
-                        <form method="GET" action="/edit-habit/<%= habit._id %>" class="habit-button">
-                            <button type="submit">Edit</button>
-                        </form>
-                        <form method="POST" action="/delete-habit/<%= habit._id %>?_method=DELETE" class="habit-button">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </div>
-                </li>
-            <% }); %>
-        </ul>
-        <% } else { %>
-            <p class="no-habits-message">No habits submitted (yet!)</p>
-        <% } %>
-        
+        <h3>habits:</h3>
+        <!-- Container for habit items with horizontal scrolling -->
+        <div class="habit-list-container">
+            <ul class="habit-list">
+                <% habits.forEach(habit => { %>
+                    <li class="habit-item">
+                        <div class="habit-box">
+                            <h3 class="habit-title"><%= habit.title %></h3>
+                            <p class="habit-description"><%= habit.description %></p>
+                            <ul class="habit-details">
+                                <% habit.days.forEach((day, index) => { %>
+                                    <li><strong><%= day %>:</strong> <%= habit.times[index] ? habit.times[index] : 'No specified time' %></li>
+                                <% }); %>
+                            </ul>
+                            <!-- Add an edit button with a link to the edit page -->
+                            <form method="GET" action="/edit-habit/<%= habit._id %>" class="habit-button">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form method="POST" action="/delete-habit/<%= habit._id %>?_method=DELETE" class="habit-button">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } else { %>
+        <p class="no-habits-message">No habits submitted (yet!)</p>
+    <% } %>
 
     <!-- Button to add a new habit -->
-    <a href="/new_habit" class="add-button"><button>Add Habit</button></a>
+    <a href="/new_habit" class="add-button"><button>add habit</button></a>
 
     <!-- Logout form -->
     <form method="POST" action="/logout" class="logout-form">
-        <button type="submit">Logout</button>
+        <button type="submit" class="logoutbutton">logout</button>
     </form>
 
     <script>
