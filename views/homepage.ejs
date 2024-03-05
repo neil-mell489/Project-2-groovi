@@ -27,10 +27,17 @@
                                         <% 
                                         // Convert time to 12-hour format with AM/PM
                                         const time = habit.times[index];
-                                        const [hours, minutes] = time.split(':');
-                                        const formattedTime = (hours % 12 || 12) + ':' + minutes + (hours >= 12 ? ' PM' : ' AM');
-                                        %>
-                                        <%= formattedTime %>
+                                        // Check if time is not null or undefined before splitting
+                                        if (time) {
+                                            const [hours, minutes] = time.split(':');
+                                            const ampm = hours >= 12 ? 'PM' : 'AM';
+                                            const displayHours = hours % 12 || 12;
+                                            const formattedTime = displayHours + ':' + minutes + ' ' + ampm;
+                                            %>
+                                            <%= formattedTime %>
+                                        <% } else { %>
+                                            No specified time
+                                        <% } %>
                                     </li>
                                 <% }); %>
                             </ul>

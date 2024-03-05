@@ -104,3 +104,16 @@ exports.updateHabit = async (req, res) => {
     res.status(500).send('Error updating habit');
   }
 };
+
+exports.getEditHabitForm = async (req, res) => {
+  try {
+    const habit = await HabitForm.findById(req.params.id);
+    if (!habit) {
+      return res.status(404).send('Habit not found');
+    }
+    res.render('edit_habit', { habit }); // Pass the habit object to the template
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error rendering edit habit form');
+  }
+};
