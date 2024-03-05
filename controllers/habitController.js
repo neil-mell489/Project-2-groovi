@@ -87,33 +87,37 @@ exports.getEditHabitForm = async (req, res) => {
 
 // Update habit with new data
 exports.updateHabit = async (req, res) => {
-  const { title, description, days, times } = req.body;
-  try {
-    const updatedHabit = await HabitForm.findByIdAndUpdate(req.params.id, {
-      title,
-      description,
-      days: Array.isArray(days) ? days : [days],
-      times: Array.isArray(times) ? times : [times],
-    }, { new: true });
-    if (!updatedHabit) {
-      return res.status(404).send('Habit not found');
-    }
-    res.redirect('/');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error updating habit');
-  }
-};
+  const { title, description } = req.body;
+  const updatedDays = [];
+  const updatedTimes = [];
 
-exports.getEditHabitForm = async (req, res) => {
+  // Loop through each day of the week and check if the checkbox is checked
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  for (const day of daysOfWeek) {
+    const checked = req.body[`check${day}`] === 'on'; // Check if the checkbox is checked
+    if (checked) {
+      updatedDays.push(day);
+      updatedTimes.push(req.body[`time${day}`]); // Get the corresponding time input value
+    }
+  }
+
   try {
     const habit = await HabitForm.findById(req.params.id);
     if (!habit) {
       return res.status(404).send('Habit not found');
     }
-    res.render('edit_habit', { habit }); // Pass the habit object to the template
+
+    // Update habit properties
+    habit.title = title;
+    habit.description = description;
+    habit.days = updatedDays;
+    habit.times = updatedTimes;
+
+    await habit.save(); // Save the updated habit to the database
+
+    res.redirect('/');
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error rendering edit habit form');
+    res.status(500).send('Error updating habit');
   }
 };
