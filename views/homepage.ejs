@@ -22,7 +22,16 @@
                             <p class="habit-description"><%= habit.description %></p>
                             <ul class="habit-details">
                                 <% habit.days.forEach((day, index) => { %>
-                                    <li><strong><%= day %>:</strong> <%= habit.times[index] ? habit.times[index] : 'No specified time' %></li>
+                                    <li>
+                                        <strong><%= day %>:</strong> 
+                                        <% 
+                                        // Convert time to 12-hour format with AM/PM
+                                        const time = habit.times[index];
+                                        const [hours, minutes] = time.split(':');
+                                        const formattedTime = (hours % 12 || 12) + ':' + minutes + (hours >= 12 ? ' PM' : ' AM');
+                                        %>
+                                        <%= formattedTime %>
+                                    </li>
                                 <% }); %>
                             </ul>
                             <!-- Add an edit button with a link to the edit page -->

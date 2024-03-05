@@ -4,16 +4,19 @@ const HabitForm = require('../models/habit_form');
 
 // Render the homepage with the logged-in user's habits
 exports.getHomepage = async (req, res) => {
-    try {
-      // Fetch only the habits associated with the logged-in user
-      const habits = await HabitForm.find({ user: req.user._id });
-      // Pass the user's name to the template
-      res.render('homepage', { habits, userName: req.user.username });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send('Error fetching habits');
-    }
+  try {
+    // Fetch only the habits associated with the logged-in user
+    const habits = await HabitForm.find({ user: req.user._id });
+    // Log the habits array to inspect its contents
+    console.log(habits);
+    // Pass the user's name to the template
+    res.render('homepage', { habits, userName: req.user.username });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error fetching habits');
+  }
 };
+
 
 // Render the form for creating a new habit
 exports.getNewHabitForm = (req, res) => {
@@ -22,14 +25,27 @@ exports.getNewHabitForm = (req, res) => {
 
 // Submit a new habit
 exports.submitHabitForm = async (req, res) => {
-  const { title, description, days, times } = req.body;
+  const { title, description } = req.body;
+  const days = [];
+  const times = [];
+
+  // Loop through each day of the week and check if the checkbox is checked
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  for (const day of daysOfWeek) {
+    const checked = req.body[`check${day}`] === 'on'; // Check if the checkbox is checked
+    if (checked) {
+      days.push(day);
+      times.push(req.body[`time${day}`]); // Get the corresponding time input value
+    }
+  }
+
   try {
     // Associate the habit with the logged-in user
     const habit = new HabitForm({
       title,
       description,
-      days: Array.isArray(days) ? days : [days],
-      times: Array.isArray(times) ? times : [times],
+      days,
+      times,
       user: req.user._id  // Associate with the logged-in user
     });
     await habit.save();  // Save the habit to the database
@@ -39,6 +55,7 @@ exports.submitHabitForm = async (req, res) => {
     res.status(500).send('Error creating new habit');
   }
 };
+
 
 // Delete a habit
 exports.deleteHabit = async (req, res) => {

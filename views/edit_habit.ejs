@@ -3,51 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>edit.</title>
+    <title>Edit Habit</title>
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/new_habit.css">
 </head>
 <body>
     <h1>edit.</h1>
     <!-- Display form to edit the habit -->
-    <form action="/update-habit/<%= habit._id %>" method="POST">
-    
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" value="<%= habit.title %>" required><br>
+    <div class="form-container">
+        <form action="/update-habit/<%= habit._id %>" method="POST">
+            <!-- Title input -->
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= habit.title %>" required><br>
 
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" cols="50" required><%= habit.description %></textarea><br>
+            <!-- Description input -->
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" value="<%= habit.description %>" required><br>
 
-        <label for="days">Days:</label>
-        <!-- Sunday -->
-        <input type="checkbox" id="sunday" name="days" value="Sunday" <%= habit.days.includes('Sunday') ? 'checked' : '' %>>
-        <label for="sunday">Sunday</label>
-        <input type="text" id="sundayTime" name="sundayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Sunday') ? habit.times[habit.days.indexOf('Sunday')] : '' %>">
-        <!-- Monday -->
-        <input type="checkbox" id="monday" name="days" value="Monday" <%= habit.days.includes('Monday') ? 'checked' : '' %>>
-        <label for="monday">Monday</label>
-        <input type="text" id="mondayTime" name="mondayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Monday') ? habit.times[habit.days.indexOf('Monday')] : '' %>">
-        <!-- Tuesday -->
-        <input type="checkbox" id="tuesday" name="days" value="Tuesday" <%= habit.days.includes('Tuesday') ? 'checked' : '' %>>
-        <label for="tuesday">Tuesday</label>
-        <input type="text" id="tuesdayTime" name="tuesdayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Tuesday') ? habit.times[habit.days.indexOf('Tuesday')] : '' %>">
-        <!-- Wednesday -->
-        <input type="checkbox" id="wednesday" name="days" value="Wednesday" <%= habit.days.includes('Wednesday') ? 'checked' : '' %>>
-        <label for="wednesday">Wednesday</label>
-        <input type="text" id="wednesdayTime" name="wednesdayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Wednesday') ? habit.times[habit.days.indexOf('Wednesday')] : '' %>">
-        <!-- Thursday -->
-        <input type="checkbox" id="thursday" name="days" value="Thursday" <%= habit.days.includes('Thursday') ? 'checked' : '' %>>
-        <label for="thursday">Thursday</label>
-        <input type="text" id="thursdayTime" name="thursdayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Thursday') ? habit.times[habit.days.indexOf('Thursday')] : '' %>">
-        <!-- Friday -->
-        <input type="checkbox" id="friday" name="days" value="Friday" <%= habit.days.includes('Friday') ? 'checked' : '' %>>
-        <label for="friday">Friday</label>
-        <input type="text" id="fridayTime" name="fridayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Friday') ? habit.times[habit.days.indexOf('Friday')] : '' %>">
-        <!-- Saturday -->
-        <input type="checkbox" id="saturday" name="days" value="Saturday" <%= habit.days.includes('Saturday') ? 'checked' : '' %>>
-        <label for="saturday">Saturday</label>
-        <input type="text" id="saturdayTime" name="saturdayTime" placeholder="hh:mm AM/PM" value="<%= habit.days.includes('Saturday') ? habit.times[habit.days.indexOf('Saturday')] : '' %>"><br>
+            <!-- Container for days and time inputs -->
+            <div class="day-time-container">
+                <!-- Group for each day -->
+                <div class="day-group">
+                    <!-- Checkbox for Sunday -->
+                    <input type="checkbox" id="checkSun" name="checkSun" <%= habit.days.includes('Sunday') ? 'checked' : '' %>>
+                    <!-- Assigning a class to the label for Sunday -->
+                    <label for="checkSun" class="day-text">Sunday</label>
+                    <!-- Time input for Sunday -->
+                    <input type="time" id="timeSun" name="timeSun" value="<%= habit.days.includes('Sunday') ? habit.times[habit.days.indexOf('Sunday')] : '' %>">
+                </div>
+                <!-- Repeat similar structure for other days -->
+                <div class="day-group">
+                    <input type="checkbox" id="checkMon" name="checkMon" <%= habit.days.includes('Monday') ? 'checked' : '' %>>
+                    <label for="checkMon" class="day-text">Monday</label>
+                    <input type="time" id="timeMon" name="timeMon" value="<%= habit.days.includes('Monday') ? habit.times[habit.days.indexOf('Monday')] : '' %>">
+                </div>
+                <div class="day-group">
+                    <input type="checkbox" id="checkTue" name="checkTue" <%= habit.days.includes('Tuesday') ? 'checked' : '' %>>
+                    <label for="checkTue" class="day-text">Tuesday</label>
+                    <input type="time" id="timeTue" name="timeTue" value="<%= habit.days.includes('Tuesday') ? habit.times[habit.days.indexOf('Tuesday')] : '' %>">
+                </div>
+                <div class="day-group">
+                    <input type="checkbox" id="checkWed" name="checkWed" <%= habit.days.includes('Wednesday') ? 'checked' : '' %>>
+                    <label for="checkWed" class="day-text">Wednesday</label>
+                    <input type="time" id="timeWed" name="timeWed" value="<%= habit.days.includes('Wednesday') ? habit.times[habit.days.indexOf('Wednesday')] : '' %>">
+                </div>
+                <div class="day-group">
+                    <input type="checkbox" id="checkThu" name="checkThu" <%= habit.days.includes('Thursday') ? 'checked' : '' %>>
+                    <label for="checkThu" class="day-text">Thursday</label>
+                    <input type="time" id="timeThu" name="timeThu" value="<%= habit.days.includes('Thursday') ? habit.times[habit.days.indexOf('Thursday')] : '' %>">
+                </div>
+                <div class="day-group">
+                    <input type="checkbox" id="checkFri" name="checkFri" <%= habit.days.includes('Friday') ? 'checked' : '' %>>
+                    <label for="checkFri" class="day-text">Friday</label>
+                    <input type="time" id="timeFri" name="timeFri" value="<%= habit.days.includes('Friday') ? habit.times[habit.days.indexOf('Friday')] : '' %>">
+                </div>
+                <div class="day-group">
+                    <input type="checkbox" id="checkSat" name="checkSat" <%= habit.days.includes('Saturday') ? 'checked' : '' %>>
+                    <label for="checkSat" class="day-text">Saturday</label>
+                    <input type="time" id="timeSat" name="timeSat" value="<%= habit.days.includes('Saturday') ? habit.times[habit.days.indexOf('Saturday')] : '' %>">
+                </div>
+            </div>
 
-        <button type="submit">Submit</button>
-    </form>
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
