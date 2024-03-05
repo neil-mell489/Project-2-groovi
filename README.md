@@ -9,7 +9,7 @@ Thank you for viewing my app! Hope you like getting groovi!
 
 ## Screenshots
 
-![alt text](groovi_login_register.png)
+
 
 
 
