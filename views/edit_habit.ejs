@@ -12,29 +12,29 @@
     <div class="form-container">
         <form action="/update-habit/<%= habit._id %>" method="POST">
             <!-- Title input -->
-            <label for="title">Title:</label>
+            <label for="title" class="textboxname label-text">Title:</label>
             <input type="text" id="title" name="title" value="<%= habit.title ? habit.title : '' %>" required><br>
 
             <!-- Description input -->
-            <label for="description">Description:</label>
+            <label for="description" class="textboxname label-text">Description:</label>
             <input type="text" id="description" name="description" value="<%= habit.description ? habit.description : '' %>" required><br>
 
             <!-- Container for days and time inputs -->
-            <div class="day-time-container">
+            <div class="day-time-container habit-schedule-grid">
                 <% ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => { %>
                     <div class="day-group">
                         <!-- Checkbox for <%= day %> -->
-                        <input type="checkbox" id="check<%= day %>" name="check<%= day %>" <%= habit.days && habit.days.includes(day) ? 'checked' : '' %>>
+                        <input type="checkbox" id="check<%= day %>" name="check<%= day %>" class="sun-check" <%= habit.days && habit.days.includes(day) ? 'checked' : '' %>>
                         <!-- Assigning a class to the label for <%= day %> -->
-                        <label for="check<%= day %>" class="day-text"><%= day %></label>
+                        <label for="check<%= day %>" class="day-text sun-text"><%= day %></label>
                         <!-- Time input for <%= day %> -->
-                        <input type="time" id="time<%= day %>" name="time<%= day %>" value="<%= habit.days && habit.days.includes(day) && habit.times ? habit.times[habit.days.indexOf(day)] : '' %>">
+                        <input type="time" id="time<%= day %>" name="time<%= day %>" class="sun-time" value="<%= habit.days && habit.days.includes(day) && habit.times ? habit.times[habit.days.indexOf(day)] : '' %>">
                     </div>
                 <% }); %>
             </div>
 
             <!-- Submit button -->
-            <button type="submit">Submit</button>
+            <button type="submit" class="submit-button">Submit</button>
         </form>
     </div>
 </body>
