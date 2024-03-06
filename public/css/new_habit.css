@@ -50,6 +50,21 @@ label[for="description"] {
     margin-top: 0px;
 }
 
+/* TEXT BOXES */
+input[type="text"] {
+    margin: 0 auto; /* Horizontally center the textboxes */
+    display: block; /* Ensure the input elements behave like block-level elements */
+    width: 350px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+    border: 1px solid white; /* Add a white border */
+    border-radius: 5px; /* Add rounded corners */
+    height: 30px;
+    margin-bottom: 20px;
+}
+
 
 /* THE GRID */
 
@@ -74,23 +89,16 @@ label[for="description"] {
     margin-right: auto; /* Pushes day labels to the left */
 }
 
-
-
-
-/* TEXT BOXES */
-input[type="text"] {
-    margin: 0 auto; /* Horizontally center the textboxes */
-    display: block; /* Ensure the input elements behave like block-level elements */
-    width: 350px;
-    font-size: 18px;
-    font-family: 'Montserrat', sans-serif;
-    color: white;
-    background-color: black;
-    border: 1px solid white; /* Add a white border */
-    border-radius: 5px; /* Add rounded corners */
-    height: 30px;
-    margin-bottom: 20px;
+/* CHECKBOX POSITIONING */
+input[type="checkbox"] {
+    margin-right: 25px;
 }
+
+/* TIME INPUTS STYLING */
+input[type="checkbox"] {
+    margin-right: 25px;
+}
+
 
 /* DAYS FONT AND COLOR */
 .day-text {
@@ -98,9 +106,6 @@ input[type="text"] {
     font-family: 'Montserrat', sans-serif; /* Added font family */
     color: white;
 }
-
-
-
 
 
 /* BUTTON */
