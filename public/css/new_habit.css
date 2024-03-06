@@ -1,93 +1,120 @@
-/* Set the font family */
+/* White Font, Black Background */
 body {
-    font-family: 'Montserrat', sans-serif;
     background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif; /* Added font family */
 }
 
-/* Center the title */
+/* HEADING */
 h1 {
     text-align: center;
-    margin-top: 20px;
     color: white;
+    margin-top: 10px; /* Ensure 10px margin from top */
+    margin-bottom: 0; /* Remove default margin */
+    padding-top: 10vh; /* Set padding based on viewport height */
+    padding-bottom: 5vh; /* Add some padding to the bottom */
 }
 
-/* Container for the entire form */
-.form-container {
-    width: 50%;
-    margin: 0 auto;
+/* TITLE - Media query for smaller screens for  */
+@media screen and (max-width: 768px) {
+    h1 {
+        padding-top: 2vh; /* Adjust padding for smaller screens */
+    }
 }
 
-/* Title and description inputs */
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: white;
+/* LABELS OF TEXTBOXES */
+.textboxname {
     font-size: 20px;
-}
-
-.day-text {
-    color: rgb(255, 255, 255); 
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-right: 80px;
-    font-size: 20px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    color: white;
-    background-color: black;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    color: white;
 }
 
-/* Container for days and time inputs */
-.day-time-container {
-    position: relative; /* Set the position of the container to relative */
-    margin-top: 40px;
+/* LABEL POSITIONING 1 */
+label[for="title"] {
+    /* Center the text */
+    position: absolute;
+    left: 50%;
+    right: 50px;
+    transform: translateY(-30px);
+    margin-left: -175px;
 }
 
-/* Group for each day */
+/* LABEL POSITIONING 2 */
+label[for="description"] {
+    /* Center the text */
+    position: absolute;
+    left: 50%;
+    right: 50px;
+    transform: translateY(-30px);
+    margin-left: -175px;
+    margin-top: 0px;
+}
+
+
+/* THE GRID */
+
+.habit-schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Three columns */
+    grid-template-rows: repeat(7, auto);
+    gap: 15px; /* Gap between rows and columns */
+    max-width: 300px; /* Example maximum width */
+    margin: 0 auto; /* Center the grid horizontally */
+    row-gap: 20px;
+}
+
 .day-group {
     display: flex;
-    align-items: center;
-    margin-bottom: 12px; /* Add bottom margin to separate groups */
-    margin-left: 260px;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically in the center */
 }
 
-/* Style for time inputs */
-input[type="time"] {
-    position: absolute; /* Set the position of the time input to absolute */
-    right: 0; /* Align the time input to the right within its parent container */
-    background-color: #000000; /* Very dark gray/near black background */
-    color: #fff; /* White text */
-    border: 1px solid #fff; /* White border */
-    border-radius: 5px; /* More rounded corners */
-    padding-left: 20px;
+/* Day label styling */
+.day-text {
+    margin-right: auto; /* Pushes day labels to the left */
+}
+
+
+
+
+/* TEXT BOXES */
+input[type="text"] {
+    margin: 0 auto; /* Horizontally center the textboxes */
+    display: block; /* Ensure the input elements behave like block-level elements */
+    width: 350px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+    border: 1px solid white; /* Add a white border */
+    border-radius: 5px; /* Add rounded corners */
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+/* DAYS FONT AND COLOR */
+.day-text {
     font-size: 20px;
-    margin-right: 260px;
-}
-
-/* Submit button */
-button {
-    background-color: #000000; /* Very dark gray/near black background */
-    color: #fff; /* White text */
-    border: 1px solid #fff; /* White border */
-    border-radius: 5px; /* More rounded corners */
-    padding: 10px 20px; /* Adjust padding as needed */
-    cursor: pointer; /* Change cursor to pointer on hover */
     font-family: 'Montserrat', sans-serif; /* Added font family */
-    font-size: 16px;
-    margin: 10px;
-    margin-top: 20px;
-    text-align: center;
+    color: white;
 }
 
-/* Change button styles on hover */
-button:hover {
-    background-color: gray;
+
+
+
+
+/* BUTTON */
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin: 50px auto 10px; /* Add margin to the top */
 }

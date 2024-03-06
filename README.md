@@ -9,7 +9,7 @@ Thank you for viewing my app! Hope you like getting groovi!
 
 ## Screenshots
 
-
+https://github.com/neil-mell489/Project-2-groovi/tree/main/groovi%20-%20Screenshots
 
 
 
@@ -37,6 +37,9 @@ Thank you for viewing my app! Hope you like getting groovi!
 2. Create an account.
 
 3. Start submitting habits!
+
+(Extra: Trello page to follow development: https://trello.com/b/UB0H0TIC/groovi)
+
 
 
 ## Next Steps
