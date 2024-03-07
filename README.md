@@ -67,3 +67,21 @@ A more calendar/weekplanner-oriented display for the homepage. 7 boxes for each 
 
 - Tutorial Page
 A page dedicated to teaching users best practices and the logistics of using the app itself.
+
+## Sources
+
+https://git.generalassemb.ly/SEIRPT-Pomona/project-2-NEM/blob/main/rest-crud-chart.md
+
+https://git.generalassemb.ly/SEIRPT-Pomona/project-2-NEM/blob/main/guide-to-add-feature-to-web-app.md
+
+https://git.generalassemb.ly/SEIRPT-Pomona/project-2-NEM/blob/main/guide-to-user-centric-crud.md
+
+https://devdocs.io/express/index#app.use
+
+https://www.passportjs.org/tutorials/password/prompt/
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
+
+https://chat.openai.com/
+
+https://planur-f9fc3b9a349f.herokuapp.com/
