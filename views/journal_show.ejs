@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal Entry</title>
+</head>
+<body>
+
+<h1>Journal Entry</h1>
+
+<div>
+  <h2><%= journalEntry.title %></h2>
+  <p>Date: <%= journalEntry.date %></p>
+  <p>Time: <%= journalEntry.time %></p>
+  <p>Entry: <%= journalEntry.entry %></p>
+</div>
+
+<!-- Button to delete this journal entry -->
+<form action="/delete-journal/<%= journalEntry._id %>" method="post">
+  <button type="submit">Delete Entry</button>
+</form>
+
+<!-- Button to edit this journal entry -->
+<a href="/edit-journal/<%= journalEntry._id %>">Edit Entry</a>
+
+<!-- Button to return to the journal page -->
+<a href="/journal">Back to Journal</a>
+
+<!-- Button to return to the habits homepage -->
+<a href="/">Back to Habits Homepage</a>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Journal Entry</title>
+</head>
+<body>
+
+<h1>New Journal Entry</h1>
+
+<form action="/submit-journal" method="POST">
+  <label for="title">Title:</label><br>
+  <input type="text" id="title" name="title" required><br><br>
+  
+  <label for="date">Date:</label><br>
+  <input type="date" id="date" name="date" value="<%= currentDate %>" required><br><br>
+  
+  <label for="time">Time:</label><br>
+  <input type="time" id="time" name="time" value="<%= currentTime %>" required><br><br>
+  
+  <label for="entry">Entry:</label><br>
+  <textarea id="entry" name="entry" rows="4" cols="50" required></textarea><br><br>
+  
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  // Get current date in YYYY-MM-DD format
+  const currentDate = new Date().toISOString().split('T')[0];
+  
+  // Get current time in HH:MM format
+  const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+  
+  // Set default values to date and time fields
+  document.getElementById('date').value = currentDate;
+  document.getElementById('time').value = currentTime;
+</script>
+
+</body>
+</html>

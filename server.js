@@ -1,5 +1,7 @@
 // server.js
 
+require('dotenv').config(); 
+require('./config/database'); 
 const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
@@ -9,10 +11,10 @@ const methodOverride = require('method-override');
 const flash = require('express-flash');
 const User = require('./models/user');
 const HabitForm = require('./models/habit_form');
-require('dotenv').config();  // Moved to the top
-require('./config/database'); // Moved to the top
-const habitController = require('./controllers/habitController');
 const userController = require('./controllers/userController');
+const habitController = require('./controllers/habitController');
+const journalController = require('./controllers/journalController')
+
 
 const app = express();
 
@@ -56,6 +58,23 @@ app.post('/register', userController.registerUser);
 app.post('/login', userController.loginUser);
 app.get('/login', userController.renderLoginPage);
 app.post('/logout', userController.logoutUser);
+
+// Define the route for /journal
+app.get('/journal', isAuthenticated, journalController.getJournalPage);
+// Define the route for /new_journal to render the new journal entry form
+app.get('/new_journal', isAuthenticated, journalController.getNewJournalForm);
+// Submit a new journal entry
+app.post('/submit-journal', isAuthenticated, journalController.submitJournalForm);
+// Route to render the edit journal entry form
+app.get('/edit-journal/:id', isAuthenticated, journalController.getEditJournalForm);
+// Route to update the journal entry
+app.put('/update-journal/:id', isAuthenticated, journalController.updateJournalEntry);
+// Route to delete the journal entry
+app.post('/delete-journal/:id', isAuthenticated, journalController.deleteJournalEntry);
+// Route to handle submitting the updated journal entry
+app.post('/update-journal/:id', isAuthenticated, journalController.updateJournalEntry);
+// Route to render the journal_show page for a specific journal entry
+app.get('/journal_show/:id', isAuthenticated, journalController.getJournalEntry);
 
 // Middleware to check if user is authenticated
 function isAuthenticated(req, res, next) {
