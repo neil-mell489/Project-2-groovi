@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/new_habit.css">
 </head>
 <body>
-    <h1>Edit Habit</h1>
+    <h1>edit habit.</h1>
     <!-- Display form to edit the habit -->
     <div class="form-container">
         <form action="/update-habit/<%= habit._id %>" method="POST">
@@ -35,6 +35,10 @@
 
             <!-- Submit button -->
             <button type="submit" class="submit-button">Submit</button>
+
+            <!-- Add a button to go back to the homepage -->
+            <a href="/" class="add-button"><button>back</button></a> 
+
         </form>
     </div>
 </body>

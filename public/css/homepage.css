@@ -16,28 +16,26 @@ h2 {
 /* Container for each habit */
 ul {
     list-style-type: none;
-    padding: 0;
 }
 
 .habit-list-container {
-    max-height: calc(90% - 200px); /* Set a maximum height for the habit list container */
+    max-height: calc(75% - 200px); /* Set a maximum height for the habit list container */
     overflow-y: auto; /* Add vertical scrollbar when content overflows */
-    border: 2px solid white; /* Add a white border */
-    border-radius: 15px; /* Add rounded corners */
     background-color: black; /* Set the background color to black */
 }
 
+
 .habit-container {
     background-color: black; /* Changed background color to black */
-    padding: 10px; /* Adjusted padding */
     width: 90%; /* Adjusted width */
     max-width: 500px; /* Added max-width */
     margin: 0 auto; /* Center horizontally */
 }
 
 .habit-item {
-    padding: 20px;
-    margin-bottom: -8px;
+    padding: 10px;
+    border: 2px solid white; /* Add a white border */
+    border-radius: 5px; /* Add rounded corners */
 }
 
 /* Title of each habit */
@@ -121,6 +119,11 @@ body {
     margin-bottom: 80px;
 }
 
+.add-button {
+    margin-top: 30px;
+    margin-bottom: -30px;
+}
+
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     h1 {
@@ -136,7 +139,5 @@ body {
     }
 }
 
-.add-button {
-    margin-top: 30px;
-    margin-bottom: -30px;
-}
+
+

@@ -2,6 +2,7 @@
 
 const HabitForm = require('../models/habit_form');
 
+
 // Render the homepage with the logged-in user's habits
 exports.getHomepage = async (req, res) => {
   try {
@@ -121,3 +122,18 @@ exports.updateHabit = async (req, res) => {
     res.status(500).send('Error updating habit');
   }
 };
+
+// Render the show_habit page for a specific habit entry
+exports.showHabit = async (req, res) => {
+  try {
+    const habit = await Habit.findById(req.params.id);
+    if (!habit) {
+      return res.status(404).send('Habit not found');
+    }
+    res.render('show_habit', { habit });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error rendering habit');
+  }
+};
+

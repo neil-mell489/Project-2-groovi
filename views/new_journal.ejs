@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/homepage.css">
+<link rel="stylesheet" href="/css/new_journal.css">
 <title>New Journal Entry</title>
 </head>
 <body>
 
-<h1>New Journal Entry</h1>
+<h1>new journal.</h1>
 
 <form action="/submit-journal" method="POST">
-  <label for="title">Title:</label><br>
+  <label for="title" class="inputlabel">Title:</label><br>
   <input type="text" id="title" name="title" required><br><br>
   
-  <label for="date">Date:</label><br>
+  <label for="date" class="inputlabel">Date:</label><br>
   <input type="date" id="date" name="date" value="<%= currentDate %>" required><br><br>
   
-  <label for="time">Time:</label><br>
+  <label for="time" class="inputlabel">Time:</label><br>
   <input type="time" id="time" name="time" value="<%= currentTime %>" required><br><br>
   
-  <label for="entry">Entry:</label><br>
-  <textarea id="entry" name="entry" rows="4" cols="50" required></textarea><br><br>
+  <label for="entry" class="inputlabel">Entry:</label><br>
+  <textarea id="entry" name="entry" rows="10" cols="30" required class="journaltext"></textarea><br><br>
   
   <button type="submit">Submit</button>
 </form>

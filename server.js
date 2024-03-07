@@ -75,6 +75,9 @@ app.post('/delete-journal/:id', isAuthenticated, journalController.deleteJournal
 app.post('/update-journal/:id', isAuthenticated, journalController.updateJournalEntry);
 // Route to render the journal_show page for a specific journal entry
 app.get('/journal_show/:id', isAuthenticated, journalController.getJournalEntry);
+// Route to render the show_habit page for a specific habit entry
+app.get('/show_habit/:id', isAuthenticated, habitController.showHabit);
+
 
 // Middleware to check if user is authenticated
 function isAuthenticated(req, res, next) {

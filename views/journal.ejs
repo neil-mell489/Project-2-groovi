@@ -4,22 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>journal.</title>
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/homepage.css">
+<link rel="stylesheet" href="/css/journal.css">
 </head>
 <body>
 
-<h1>journal.</h1>
+<h1>groovi</h1>
+
+<h3>journal.</h3>
 
 <div id="journal-entries">
   <% journalEntries.forEach(function(entry) { %>
     <div class="journal-entry">
       <div class="entry-info">
-        <strong>Title:</strong> <%= entry.title %>
+        <%= entry.title %>
       </div>
       <div class="entry-info">
-        <strong>Date:</strong> <%= entry.date %>
+        <%= entry.date %>
       </div>
       <div class="entry-info">
-        <strong>Time:</strong> <%= entry.time %>
+         <%= entry.time %>
       </div>
       <div class="btn-group">
         <!-- Edit button -->
@@ -38,8 +43,11 @@
 <!-- Button to add a journal entry -->
 <a href="/new_journal" class="add-button"><button>add entry</button></a>
 
+<!-- Button to add a new habit -->
+<a href="/new_habit" class="add-button"><button>add habit</button></a>
+
 <!-- Add a button to go back to the homepage -->
-<a href="/">home</a>
+<a href="/" class="add-button"><button>view habits</button></a> 
 
 </body>
 </html>

@@ -1,0 +1,52 @@
+input[type="text"] {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+}
+
+input[type="time"] {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+}
+
+.journaltext {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+}
+
+label {
+   font-size: 20px;
+   margin-bottom: 10px;
+}
+
+* {
+    margin-bottom: 10px;
+}
+
+
+input#date {
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    padding: 10px; 
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+}
+
+
+
+  
+
+
+  

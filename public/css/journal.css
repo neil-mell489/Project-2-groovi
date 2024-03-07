@@ -1,0 +1,23 @@
+.journal-entry {
+    border: 2px solid #fff; /* White border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 20px; /* Padding in all directions */
+    font-size: 18px;
+}
+
+.entry-info {
+    padding: 5px;
+}
+
+
+#journal-entries {
+    /* Specify a fixed height for the container */
+    height: auto; /* Adjust the height as needed */
+  
+    /* Enable scrolling */
+    overflow-y: auto;
+  
+    /* Add padding to the right to prevent content from being covered by the scrollbar */
+    padding-right: 20px; /* Adjust as needed */
+  }
+  

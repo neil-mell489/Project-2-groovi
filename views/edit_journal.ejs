@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edit Journal Entry</title>
+<link rel="stylesheet" href="/css/edit_journal.css">
+
 </head>
 <body>
-<h1>Edit Journal Entry</h1>
+<h1>edit journal.</h1>
 <form action="/update-journal/<%= journalEntry._id %>" method="POST"> 
   <!-- Add hidden input field for method override -->
   <input type="hidden" name="_method" value="PUT">
