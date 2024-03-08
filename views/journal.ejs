@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>journal.</title>
-<link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="/css/homepage.css">
-<link rel="stylesheet" href="/css/journal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>journal.</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/journal.css">
 </head>
 <body>
+    <h1>groovi</h1>
 
-<h1>groovi</h1>
+    <h2>journal.</h2>
 
-<h3>journal.</h3>
-
-<div id="journal-entries">
-  <% journalEntries.forEach(function(entry) { %>
-    <div class="journal-entry">
-      <div class="entry-info">
-        <%= entry.title %>
-      </div>
-      <div class="entry-info">
-        <%= entry.date %>
-      </div>
-      <div class="entry-info">
-         <%= entry.time %>
-      </div>
-      <div class="btn-group">
-        <!-- Edit button -->
-        <a href="/edit-journal/<%= entry._id %>" class="edit-button"><button>edit</button></a>
-        <!-- Delete button -->
-        <form action="/delete-journal/<%= entry._id %>" method="POST">
-          <button type="submit">delete</button>
-        </form>
-        <!-- View button -->
-        <a href="/journal_show/<%= entry._id %>" class="view-button"><button>view</button></a>
-      </div>
+    <div id="journal-entries">
+        <% if (journalEntries.length > 0) { %>
+            <% journalEntries.forEach(function(entry) { %>
+                <div class="journal-entry">
+                    <div class="entry-info">
+                        <%= entry.title %>
+                    </div>
+                    <div class="entry-info">
+                        <%= entry.date %>
+                    </div>
+                    <div class="entry-info">
+                        <%= entry.time %>
+                    </div>
+                    <div class="btn-group">
+                        <!-- Edit button -->
+                        <a href="/edit-journal/<%= entry._id %>" class="edit-button"><button>edit</button></a>
+                        <!-- Delete button -->
+                        <form action="/delete-journal/<%= entry._id %>" method="POST">
+                            <button type="submit">delete</button>
+                        </form>
+                        <!-- View button -->
+                        <a href="/journal_show/<%= entry._id %>" class="view-button"><button>view</button></a>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No entries (yet!)</p>
+        <% } %>
     </div>
-  <% }); %>
-</div>
 
-<!-- Button to add a journal entry -->
-<a href="/new_journal" class="add-button"><button>add entry</button></a>
+    <!-- Button to add a journal entry -->
+    <a href="/new_journal" class="add-button"><button>add entry</button></a>
 
-<!-- Button to add a new habit -->
-<a href="/new_habit" class="add-button"><button>add habit</button></a>
+    <!-- Button to add a new habit -->
+    <a href="/new_habit" class="add-button"><button>add habit</button></a>
 
-<!-- Add a button to go back to the homepage -->
-<a href="/" class="add-button"><button>view habits</button></a> 
+    <!-- Add a button to go back to the homepage -->
+    <a href="/" class="add-button"><button>home</button></a>
 
 </body>
 </html>
