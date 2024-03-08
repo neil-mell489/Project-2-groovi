@@ -6,9 +6,10 @@
 <title>Edit Journal Entry</title>
 <link rel="stylesheet" href="/css/edit_journal.css">
 
+
 </head>
 <body>
-<h1>edit journal.</h1>
+<h1>edit entry.</h1>
 <form action="/update-journal/<%= journalEntry._id %>" method="POST"> 
   <!-- Add hidden input field for method override -->
   <input type="hidden" name="_method" value="PUT">
@@ -24,7 +25,13 @@
   <label for="entry">Entry:</label>
   <textarea id="entry" name="entry" rows="4" required><%= journalEntry.entry %></textarea>
 
-  <button type="submit">Update Entry</button>
+    <div>
+  <button type="submit">update</button>
+  </div>
 </form>
+
+<!-- Add a button to go back to the homepage -->
+<a href="/journal" class="add-button"><button>back</button></a>
+
 </body>
 </html>

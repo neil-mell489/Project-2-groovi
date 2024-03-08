@@ -24,7 +24,12 @@
                         <%= entry.date %>
                     </div>
                     <div class="entry-info">
-                        <%= entry.time %>
+                        <% const timeParts = entry.time.split(':'); %>
+                        <% let hours = parseInt(timeParts[0]); %>
+                        <% let minutes = parseInt(timeParts[1]); %>
+                        <% const ampm = hours >= 12 ? 'PM' : 'AM'; %>
+                        <% hours = hours % 12 || 12; %>
+                        <%= hours + ':' + (minutes < 10 ? '0' : '') + minutes + ' ' + ampm %>
                     </div>
                     <div class="btn-group">
                         <!-- Edit button -->
@@ -44,13 +49,13 @@
     </div>
 
     <!-- Button to add a journal entry -->
-    <a href="/new_journal" class="add-button"><button>add entry</button></a>
+    <a href="/new_journal" class="add-button"><button>add journal entry</button></a>
 
     <!-- Button to add a new habit -->
     <a href="/new_habit" class="add-button"><button>add habit</button></a>
 
     <!-- Add a button to go back to the homepage -->
-    <a href="/" class="add-button"><button>home</button></a>
+    <a href="/" class="add-button"><button>view habits</button></a>
 
 </body>
 </html>

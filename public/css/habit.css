@@ -1,0 +1,87 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+h1, h2, h3, p, li {
+    color: white;
+}
+
+h1, h3 {
+    display: block;
+    text-align: center;
+}
+
+.habit-details {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px; /* Adjust as needed */
+}
+
+.back-button {
+    display: block;
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+
+}
+
+.back-button button {
+    background-color: #000000; /* Very dark gray/near black background */
+    color: #fff; /* White text */
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px; /* More rounded corners */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+    font-size: 16px;
+    margin: 10px;
+}
+
+.back-button button:hover {
+    background-color: #444;
+}
+
+/* Add this CSS to remove bullet points from list items */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Additional styling for list items */
+li {
+    color: white;
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+
+form button {
+    background-color: #000000; /* Very dark gray/near black background */
+    color: #fff; /* White text */
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px; /* More rounded corners */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+    font-size: 18px;
+    margin: 10px;
+  }
+  
+  form button:hover {
+    background-color: #444;
+  }
+  
+
+p {
+    font-size: 18px;
+}
+
+.entry {
+    max-width: 400px;
+}

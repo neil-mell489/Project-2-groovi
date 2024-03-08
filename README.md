@@ -82,6 +82,6 @@ https://www.passportjs.org/tutorials/password/prompt/
 
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
 
-https://chat.openai.com/
+https://chat.openai.com/ (syntax checks)
 
 https://planur-f9fc3b9a349f.herokuapp.com/

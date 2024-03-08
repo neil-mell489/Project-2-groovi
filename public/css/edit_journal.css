@@ -1,1 +1,66 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the body fill the viewport height */
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    text-align: center;
+    max-width: 600px; /* Adjust as needed */
+    width: 80%; /* Adjust as needed */
+    margin: 20px auto; /* Center the form */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  textarea {
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    color: white;
+    background-color: black;
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+    font-size: 18px;
+  }
+  
+  button[type="submit"],
+  .add-button button {
+    background-color: #000000; /* Very dark gray/near black background */
+    color: #fff; /* White text */
+    border: 1px solid #fff; /* White border */
+    border-radius: 5px; /* More rounded corners */
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: 'Montserrat', sans-serif; /* Added font family */
+    font-size: 16px;
+    margin: 10px;
+  }
+  
+  button[type="submit"]:hover,
+  .add-button button:hover {
+    background-color: #444;
+  }
 
+  
+  .add-button {
+    text-align: center;
+  }
+  

@@ -1,6 +1,7 @@
 // habitController.js
 
 const HabitForm = require('../models/habit_form');
+const Habit = require('../models/habit_form');
 
 
 // Render the homepage with the logged-in user's habits

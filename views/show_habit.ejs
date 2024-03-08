@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Habit</title>
+    <link rel="stylesheet" href="/css/habit.css">
+    
+</head>
+<body>
+    <h1>groovi</h1>
+
+    <h3>habit.</h3>
+
+    <div class="habit-details">
+        <h2><%= habit.title %></h2>
+        <p><%= habit.description %></p>
+        <ul>
+            <% habit.days.forEach((day, index) => { %>
+                <li><strong><%= day %>:</strong> 
+                <% const time = habit.times[index]; %>
+                <% if (time) { %>
+                    <% const [hours, minutes] = time.split(':'); %>
+                    <% const ampm = hours >= 12 ? 'PM' : 'AM'; %>
+                    <% const displayHours = hours % 12 || 12; %>
+                    <%= displayHours + ':' + minutes + ' ' + ampm %>
+                <% } else { %>
+                    No specified time
+                <% } %>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
+    <!-- Button to go back to homepage -->
+    <a href="/" class="back-button"><button>habits</button></a>
+
+</body>
+</html>

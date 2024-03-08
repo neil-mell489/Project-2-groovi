@@ -4,31 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Journal Entry</title>
+<link rel="stylesheet" href="/css/habit.css">
+
+
 </head>
 <body>
 
 <h1>view entry.</h1>
 
-<div>
+<div class="entry">
   <h2><%= journalEntry.title %></h2>
-  <p>Date: <%= journalEntry.date %></p>
-  <p>Time: <%= journalEntry.time %></p>
-  <p>Entry: <%= journalEntry.entry %></p>
+  <p><%= journalEntry.date %></p>
+  <p><%= journalEntry.time %></p>
+  <p><%= journalEntry.entry %></p>
 </div>
 
 <!-- Button to delete this journal entry -->
 <form action="/delete-journal/<%= journalEntry._id %>" method="post">
-  <button type="submit">Delete Entry</button>
+  <button type="submit">delete</button>
 </form>
 
-<!-- Button to edit this journal entry -->
-<a href="/edit-journal/<%= journalEntry._id %>">Edit Entry</a>
-
 <!-- Button to return to the journal page -->
-<a href="/journal">Back to Journal</a>
+<form action="/journal" method="get">
+  <button type="submit">back</button>
+</form>
 
 <!-- Button to return to the habits homepage -->
-<a href="/">Back to Habits Homepage</a>
+<form action="/" method="get">
+  <button type="submit">habits</button>
+</form>
+
 
 </body>
 </html>
