@@ -15,6 +15,15 @@ h1 {
     padding-bottom: 5vh; /* Add some padding to the bottom */
 }
 
+h3 {
+    text-align: center;
+    color: white;
+    margin-top: 0px; /* Ensure 10px margin from top */
+    margin-bottom: 15px; /* Remove default margin */
+    padding-top: 10vh; /* Set padding based on viewport height */
+    padding-bottom: 5vh; /* Add some padding to the bottom */
+}
+
 /* TITLE - Media query for smaller screens for  */
 @media screen and (max-width: 768px) {
     h1 {
@@ -95,8 +104,13 @@ input[type="checkbox"] {
 }
 
 /* TIME INPUTS STYLING */
-input[type="checkbox"] {
-    margin-right: 25px;
+input[type="time"] {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+    border: 1px solid white; /* Add a white border */
+    padding-left: 6px;
 }
 
 
